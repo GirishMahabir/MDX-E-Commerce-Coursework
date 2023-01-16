@@ -1,0 +1,48 @@
+// Creating Database - mdx-ecommerce
+use mdx-ecommerce;
+
+db.users.insert(
+    {
+        "userId": "U001",
+        "name": "super",
+        "surname": "admin",
+        "username": "superadmin",
+        "email": "superadmin@company.com",
+        "password": "noPass!*0T",
+        "date_added": new Date(Date.now()),
+        "role": "admin"
+    }
+)
+
+db.users.insert(
+    {
+        "userId": "U002",
+        "name": "Jane",
+        "surname": "Doe",
+        "username": "jane",
+        "email": "jane@gmail.com",
+        "password": "jane'sPass56&",
+        "date_added": new Date(Date.now()),
+        "role": "customer"
+    }
+)
+
+db.products.insert(
+  {
+    "productId": "P001"
+    "name": "product_name",
+    "description": "This product has x,y,z features.",
+    "price": "$1000",
+    "quantity": 5,
+    "image": BinData(0, '')
+  }
+)
+
+db.orders.insert(
+  {
+    "orderId": "O001",
+    "userId": "U002",
+    "productId": "P001",
+    "quantity": 2
+  }
+)
