@@ -1,0 +1,80 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    font-family: Lato;
+    font-size: x-large;
+    font-weight: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 10%;
+    padding-top: 3%;
+    /* background-color: aqua; */
+}
+
+.admin-logo {
+    width: 10%;
+    padding-right: 5%;
+}
+
+.admin-login-body-logo {
+    width: 135%;
+}
+
+.login-body {
+    font-family: Lato;
+    font-size: larger;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* background-color: aqua; */
+}
+
+.body-left-column {
+    display: flex;
+    flex-direction: column;
+    padding-top: 7%;
+    justify-content: flex-start;
+}
+
+.body-right-column {
+    padding-top: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: fit-content;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.admin-login-form {
+    border: none;
+    font-size: 40px;
+    font-family: Lato;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+}
+
+.admin-login-form-field {
+    margin-top: 5%;
+    border-radius: 100px;
+    background-color: rgb(189, 189, 189);
+    size: 5%;
+}
+
+.admin-field-form-btn {
+    border: none;
+    font-size: 40px;
+    font-family: Lato;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    padding: 4%;
+    width: 35%;
+    border-radius: 100px;
+    background-color: rgb(197, 197, 82);
+}
