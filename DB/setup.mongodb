@@ -17,6 +17,7 @@ db.users.insert(
 db.users.insert(
     {
         "userId": "U002",
+        "orderId": "O001"
         "name": "Jane",
         "surname": "Doe",
         "username": "jane",
