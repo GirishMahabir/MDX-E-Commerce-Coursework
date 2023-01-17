@@ -1,0 +1,331 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    font-family: Lato;
+    font-size: x-large;
+    font-weight: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 10%;
+    padding-top: 3%;
+    /* background-color: aqua; */
+}
+
+.admin-logo {
+    width: 10%;
+    padding-right: 5%;
+}
+
+.admin-logo-main {
+    width: 10%;
+    padding-right: 55%;
+    padding-left: 8%;
+}
+
+.admin-login-body-logo {
+    width: 135%;
+}
+
+.login-body {
+    font-family: Lato;
+    font-size: larger;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* background-color: aqua; */
+}
+
+.body-left-column {
+    display: flex;
+    flex-direction: column;
+    padding-top: 7%;
+    justify-content: flex-start;
+}
+
+.body-right-column {
+    padding-top: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: fit-content;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.admin-login-form {
+    border: none;
+    font-size: 40px;
+    font-family: Lato;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+}
+
+.admin-login-form-field {
+    margin-top: 5%;
+    border-radius: 100px;
+    background-color: rgb(189, 189, 189);
+    size: 5%;
+}
+
+.admin-field-form-btn {
+    border: none;
+    font-size: 40px;
+    font-family: Lato;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    padding: 4%;
+    width: 35%;
+    border-radius: 100px;
+    background-color: rgb(197, 197, 82);
+}
+
+.admin-login-h1 {
+    padding-top: 2%;
+    color: rgb(182, 77, 77);
+
+}
+
+.header-02 {
+    font-family: Lato;
+    font-size: x-large;
+    font-weight: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 2%;
+    padding-top: 3%;
+    padding-bottom: 2%;
+}
+
+.admin-login-h2 {
+    padding-top: 2.5%;
+    padding-left: 55%;
+    font-size: 40px;
+    font-weight: 900;
+    font-family: Lato;
+    color: rgb(63, 141, 117);
+    text-shadow: 0 0 10px rgb(14, 207, 133), 0 0 20px rgb(67, 79, 66);
+}
+
+/* Products Table CSS Starts */
+.products-section {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    max-width: 80%;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    margin-left: 9%;
+
+}
+
+.products-section thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.products-section th,
+.products-section td {
+    padding: 12px 15px;
+}
+
+.products-section tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.products-section tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.products-section tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.products-section tbody tr.show-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.scroll-btn {
+    overflow: scroll;
+    height: 500px;
+}
+
+/* Products Table CSS Ends */
+
+.section-break {
+    font-family: Lato;
+    font-weight: 600;
+    font-size: 40px;
+    background-color: #ab4968;
+    color: white;
+    border-radius: 50px;
+    min-width: 76%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 1%;
+    max-width: fit-content;
+    margin-left: 10%;
+
+}
+
+.admin-products-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 90%;
+
+
+    /* Font Size options */
+    font-family: Lato;
+    font-weight: 600;
+    font-size: 30px;
+    /* background-color: #009879; */
+}
+
+.apf-d01 {
+    display: flex;
+    justify-content: center;
+    padding-left: 5%;
+}
+
+.apf-d02 {
+    display: flex;
+    justify-content: center;
+    padding-left: 20%;
+}
+
+.apf-d03 {
+    display: flex;
+    justify-content: center;
+    padding-left: 20%;
+}
+
+.apf-d03 button {
+    height: 120%;
+    font-weight: 600;
+    font-size: larger;
+    border-radius: 100px;
+    background-color: #009879;
+    color: azure;
+}
+
+.apf-d04 {
+    display: flex;
+    justify-content: center;
+}
+
+.apf-d04 input {
+    height: 130%;
+    font-size: 25px;
+}
+
+.apf-d05 {
+    display: flex;
+    justify-content: center;
+    padding-left: 7%;
+}
+
+.apf-d05 input {
+    height: 130%;
+    font-size: 25px;
+}
+
+.apf-d06 {
+    display: flex;
+    justify-content: center;
+}
+
+.apf-d07 {
+    display: flex;
+    justify-content: center;
+    padding-left: 12%;
+}
+
+.apf-d08 {
+    display: flex;
+    justify-content: center;
+    padding-left: 25%;
+}
+
+.apf-d08 button {
+    height: 120%;
+    font-weight: 600;
+    font-size: larger;
+    border-radius: 100px;
+    background-color: #009879;
+    color: azure;
+}
+
+.apf-d09 {
+    display: flex;
+    justify-content: center;
+}
+
+.apf-d09 textarea {
+    height: 120%;
+    font-family: Lato;
+    font-weight: 600;
+    font-size: large;
+}
+
+.apf-d10 {
+    display: flex;
+    justify-content: center;
+    padding-left: 12%;
+}
+
+.apf-d10 {
+    display: flex;
+    justify-content: center;
+    padding-left: 11%;
+}
+
+.apf-d10 input {
+    font-family: Lato;
+    font-weight: 600;
+    font-size: large;
+    max-height: 40%;
+    max-width: 40%;
+    padding-bottom: 1%;
+}
+
+.apf-d11 {
+    display: flex;
+    justify-content: center;
+    padding-left: 28%;
+    margin-top: 1%;
+}
+
+.apf-d11 button {
+    height: 120%;
+    font-weight: 600;
+    font-size: larger;
+    border-radius: 100px;
+    background-color: #009879;
+    color: azure;
+    max-height: 60%;
+}
+
+.rm-url {
+    /* Remove URL default styles. */
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    color: rgb(161, 128, 105);
+    text-shadow: 0 0 10px rgb(173, 119, 83), 0 0 20px rgb(139, 99, 72);
+}

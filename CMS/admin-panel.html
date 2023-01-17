@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='CSS/style.css'>
+    <!-- Google Fonts. -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:100italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <!-- Google Icon Link -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+    <title>Administration Panel</title>
+</head>
+
+<body class="main-container">
+    <div class="header-02">
+        <img class='admin-logo-main' src='ASSETS/admin-logo.png' alt='admin-logo'>
+        <h1 class="admin-login-h1">Admin Panel</h1>
+    </div>
+    <div class="section-break">
+        Products Management
+    </div>
+    <div class='products-section scroll-btn'>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>P001</td>
+                    <td>MSI Rider</td>
+                    <td>Intel i7, RTX 3060, 16GB Ram, 512GB SSD </td>
+                    <td>$700</td>
+                    <td>5</td>
+                    <td>
+                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                    </td>
+                </tr>
+                <tr class="show-row">
+                    <td>P002</td>
+                    <td>Asus Zephrus G14</td>
+                    <td>Intel core i7, GTX 3070</td>
+                    <td>$1700</td>
+                    <td>5</td>
+                    <td>
+                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>P003</td>
+                    <td>MSI Vector GP76</td>
+                    <td>Core i9-12900HK RTX 3080 32GB 1TB NVMe SSD</td>
+                    <td>$2500</td>
+                    <td>5</td>
+                    <td>
+                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                    </td>
+                </tr>
+                <tr class="show-row">
+                    <td>P004</td>
+                    <td>MSI Raider GE66</td>
+                    <td>Core i7-12700H RTX 3070 Ti 32GB DDR5 1TB NVMe SSD</td>
+                    <td>$2000</td>
+                    <td>3</td>
+                    <td>
+                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>P005</td>
+                    <td>Acer Nitro 5</td>
+                    <td>Intel Core i5-9300H, NVIDIA GeForce GTX 1650</td>
+                    <td>$700</td>
+                    <td>4</td>
+                    <td>
+                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>P006</td>
+                    <td>MSI Rider</td>
+                    <td>Intel i7, RTX 3060, 16GB Ram, 512GB SSD </td>
+                    <td>$700</td>
+                    <td>2</td>
+                    <td>
+                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                    </td>
+                </tr>
+                <tr class="show-row">
+                    <td>P007</td>
+                    <td>Asus Zephrus G14</td>
+                    <td>Intel core i7, GTX 3070</td>
+                    <td>$1700</td>
+                    <td>3</td>
+                    <td>
+                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>P008</td>
+                    <td>MSI Vector GP76</td>
+                    <td>Core i9-12900HK RTX 3080 32GB 1TB NVMe SSD</td>
+                    <td>$2500</td>
+                    <td>3</td>
+                    <td>
+                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                    </td>
+                </tr>
+                <tr class="show-row">
+                    <td>P009</td>
+                    <td>MSI Raider GE66</td>
+                    <td>Core i7-12700H RTX 3070 Ti 32GB DDR5 1TB NVMe SSD</td>
+                    <td>$2000</td>
+                    <td>4</td>
+                    <td>
+                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>P010</td>
+                    <td>Acer Nitro 5</td>
+                    <td>Intel Core i5-9300H, NVIDIA GeForce GTX 1650</td>
+                    <td>$700</td>
+                    <td>4</td>
+                    <td>
+                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div class="section-break">
+        Update/Add Products
+    </div>
+    <br>
+    <div class="admin-products-form">
+        <div class="apf-d01">
+            <label for="pid">Product ID</label>
+        </div>
+        <div class="apf-d02">
+            <label for="product_name">Product Name</label>
+        </div>
+        <div class="apf-d03">
+            <button id="uploadImageButton" type="button">Upload Image</button>
+        </div>
+    </div>
+    <div class="admin-products-form">
+        <div class="apf-d04">
+            <input type="text" id="pid" name="pid" placeholder="P000" minlength="4" maxlength="4">
+        </div>
+        <div class="apf-d05">
+            <input type="text" id="product_name" name="password">
+        </div>
+    </div>
+    <br> <br>
+    <div class="admin-products-form">
+        <div class="apf-d06">
+            <label for="description">Product Description</label>
+        </div>
+        <div class="apf-d07">
+            <label for="quantity">Product Quantity</label>
+        </div>
+        <div class="apf-d08">
+            <button id="updateButton" type="button">UPDATE</button>
+        </div>
+    </div>
+    <br>
+    <div class="admin-products-form">
+        <div class="apf-d09">
+            <textarea type="text" rows="4" cols="27" id="description" name="description"></textarea>
+        </div>
+        <div class="apf-d10">
+            <input type="number" id="quantity" name="quantity">
+        </div>
+        <div class="apf-d11">
+            <button class="" id="addButton" type="button">ADD</button>
+        </div>
+    </div>
+    <br> <br>
+    <div class="section-break">
+        Orders List
+    </div>
+
+    <!-- Orders Section -->
+    <div class='products-section scroll-btn'>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>User Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>O001</td>
+                    <td>Alice Gella</td>
+                    <td>MSI Rider</td>
+                    <td>5</td>
+                    <td>$700</td>
+                </tr>
+                <tr class="show-row">
+                    <td>O002</td>
+                    <td>John Doe</td>
+                    <td>Asus Zephrus G14</td>
+                    <td>5</td>
+                    <td>$1700</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
