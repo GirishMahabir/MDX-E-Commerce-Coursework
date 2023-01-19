@@ -1,7 +1,7 @@
 // Creating Database - mdx-ecommerce
 use mdx-ecommerce;
 
-db.users.insert(
+db.users.insertOne(
     {
         "userId": "U001",
         "name": "super",
@@ -14,7 +14,7 @@ db.users.insert(
     }
 )
 
-db.users.insert(
+db.users.insertOne(
     {
         "userId": "U002",
         "orderId": "O001"
@@ -28,7 +28,7 @@ db.users.insert(
     }
 )
 
-db.products.insert(
+db.products.insertOne(
   {
     "productId": "P001"
     "name": "product_name",
@@ -39,9 +39,10 @@ db.products.insert(
   }
 )
 
-db.orders.insert(
+db.orders.insertOne(
   {
     "orderId": "O001",
+    "date": new Date(Date.now()),
     "userId": "U002",
     "productId": "P001",
     "quantity": 2
