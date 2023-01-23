@@ -1,3 +1,5 @@
+<?php
+echo "
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -15,13 +17,13 @@
 </head>
 <!-- Main Container -->
 
-<body class="main-container">
-    <div class="header-02">
+<body class='main-container'>
+    <div class='header-02'>
         <!-- Header Section -->
         <img class='admin-logo-main' src='ASSETS/admin-logo.png' alt='admin-logo'>
-        <h1 class="admin-login-h1">Admin Panel</h1>
+        <h1 class='admin-login-h1'>Admin Panel</h1>
     </div>
-    <div class="section-break">
+    <div class='section-break'>
         <!-- Section Break -->
         Products Management
     </div>
@@ -46,17 +48,17 @@
                     <td>$700</td>
                     <td>5</td>
                     <td>
-                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                        <a class='material-icons rm-url' href='https://www.google.com'>switch_access_shortcut</a>
                     </td>
                 </tr>
-                <tr class="show-row">
+                <tr class='show-row'>
                     <td>P002</td>
                     <td>Asus Zephrus G14</td>
                     <td>Intel core i7, GTX 3070</td>
                     <td>$1700</td>
                     <td>5</td>
                     <td>
-                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                        <a class='material-icons rm-url' href='https://www.google.com'>switch_access_shortcut</a>
                     </td>
                 </tr>
                 <tr>
@@ -66,17 +68,17 @@
                     <td>$2500</td>
                     <td>5</td>
                     <td>
-                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                        <a class='material-icons rm-url' href='https://www.google.com'>switch_access_shortcut</a>
                     </td>
                 </tr>
-                <tr class="show-row">
+                <tr class='show-row'>
                     <td>P004</td>
                     <td>MSI Raider GE66</td>
                     <td>Core i7-12700H RTX 3070 Ti 32GB DDR5 1TB NVMe SSD</td>
                     <td>$2000</td>
                     <td>3</td>
                     <td>
-                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                        <a class='material-icons rm-url' href='https://www.google.com'>switch_access_shortcut</a>
                     </td>
                 </tr>
                 <tr>
@@ -86,7 +88,7 @@
                     <td>$700</td>
                     <td>4</td>
                     <td>
-                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                        <a class='material-icons rm-url' href='https://www.google.com'>switch_access_shortcut</a>
                     </td>
                 </tr>
                 <tr>
@@ -96,17 +98,17 @@
                     <td>$700</td>
                     <td>2</td>
                     <td>
-                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                        <a class='material-icons rm-url' href='https://www.google.com'>switch_access_shortcut</a>
                     </td>
                 </tr>
-                <tr class="show-row">
+                <tr class='show-row'>
                     <td>P007</td>
                     <td>Asus Zephrus G14</td>
                     <td>Intel core i7, GTX 3070</td>
                     <td>$1700</td>
                     <td>3</td>
                     <td>
-                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                        <a class='material-icons rm-url' href='https://www.google.com'>switch_access_shortcut</a>
                     </td>
                 </tr>
                 <tr>
@@ -116,17 +118,17 @@
                     <td>$2500</td>
                     <td>3</td>
                     <td>
-                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                        <a class='material-icons rm-url' href='https://www.google.com'>switch_access_shortcut</a>
                     </td>
                 </tr>
-                <tr class="show-row">
+                <tr class='show-row'>
                     <td>P009</td>
                     <td>MSI Raider GE66</td>
                     <td>Core i7-12700H RTX 3070 Ti 32GB DDR5 1TB NVMe SSD</td>
                     <td>$2000</td>
                     <td>4</td>
                     <td>
-                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                        <a class='material-icons rm-url' href='https://www.google.com'>switch_access_shortcut</a>
                     </td>
                 </tr>
                 <tr>
@@ -136,64 +138,64 @@
                     <td>$700</td>
                     <td>4</td>
                     <td>
-                        <a class="material-icons rm-url" href="https://www.google.com">switch_access_shortcut</a>
+                        <a class='material-icons rm-url' href='https://www.google.com'>switch_access_shortcut</a>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
     <br>
-    <div class="section-break">
+    <div class='section-break'>
         <!-- Section Break -->
 
         Update/Add Products
     </div>
     <br>
-    <div class="admin-products-form">
-        <div class="apf-d01">
-            <label for="pid">Product ID</label>
+    <div class='admin-products-form'>
+        <div class='apf-d01'>
+            <label for='pid'>Product ID</label>
         </div>
-        <div class="apf-d02">
-            <label for="product_name">Product Name</label>
+        <div class='apf-d02'>
+            <label for='product_name'>Product Name</label>
         </div>
-        <div class="apf-d03">
-            <button id="uploadImageButton" type="button">Upload Image</button>
+        <div class='apf-d03'>
+            <button id='uploadImageButton' type='button'>Upload Image</button>
         </div>
     </div>
-    <div class="admin-products-form">
-        <div class="apf-d04">
-            <input type="text" id="pid" name="pid" placeholder="P000" minlength="4" maxlength="4">
+    <div class='admin-products-form'>
+        <div class='apf-d04'>
+            <input type='text' id='pid' name='pid' placeholder='P000' minlength='4' maxlength='4'>
         </div>
-        <div class="apf-d05">
-            <input type="text" id="product_name" name="password">
+        <div class='apf-d05'>
+            <input type='text' id='product_name' name='password'>
         </div>
     </div>
     <br> <br>
-    <div class="admin-products-form">
-        <div class="apf-d06">
-            <label for="description">Product Description</label>
+    <div class='admin-products-form'>
+        <div class='apf-d06'>
+            <label for='description'>Product Description</label>
         </div>
-        <div class="apf-d07">
-            <label for="quantity">Product Quantity</label>
+        <div class='apf-d07'>
+            <label for='quantity'>Product Quantity</label>
         </div>
-        <div class="apf-d08">
-            <button id="updateButton" type="button">UPDATE</button>
+        <div class='apf-d08'>
+            <button id='updateButton' type='button'>UPDATE</button>
         </div>
     </div>
     <br>
-    <div class="admin-products-form">
-        <div class="apf-d09">
-            <textarea type="text" rows="4" cols="27" id="description" name="description"></textarea>
+    <div class='admin-products-form'>
+        <div class='apf-d09'>
+            <textarea type='text' rows='4' cols='27' id='description' name='description'></textarea>
         </div>
-        <div class="apf-d10">
-            <input type="number" id="quantity" name="quantity">
+        <div class='apf-d10'>
+            <input type='number' id='quantity' name='quantity'>
         </div>
-        <div class="apf-d11">
-            <button class="" id="addButton" type="button">ADD</button>
+        <div class='apf-d11'>
+            <button class='' id='addButton' type='button'>ADD</button>
         </div>
     </div>
     <br> <br>
-    <div class="section-break">
+    <div class='section-break'>
         <!-- Section Break -->
         Orders List
     </div>
@@ -218,7 +220,7 @@
                     <td>5</td>
                     <td>$700</td>
                 </tr>
-                <tr class="show-row">
+                <tr class='show-row'>
                     <td>O002</td>
                     <td>John Doe</td>
                     <td>Asus Zephrus G14</td>
@@ -232,3 +234,6 @@
 </body>
 
 </html>
+";
+
+?>
