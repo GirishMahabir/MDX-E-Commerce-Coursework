@@ -210,16 +210,16 @@
 .apf-d03 {
     display: flex;
     justify-content: center;
-    padding-left: 20%;
+    padding-left: 12%;
 }
 
-.apf-d03 button {
+.apf-d03 input {
     height: 120%;
     font-weight: 600;
-    font-size: larger;
-    border-radius: 100px;
-    background-color: #009879;
-    color: azure;
+    font-size: large;
+    color: black;
+    margin-top: 7%;
+    margin-left: 22%;
 }
 
 .apf-d04 {
@@ -251,13 +251,20 @@
 .apf-d07 {
     display: flex;
     justify-content: center;
-    padding-left: 12%;
+    padding-left: 9%;
+}
+
+.apf-d071 {
+    display: flex;
+    justify-content: center;
+    padding-left: 5%;
 }
 
 .apf-d08 {
     display: flex;
     justify-content: center;
-    padding-left: 25%;
+    padding-left: 10%;
+    margin-top: -1%;
 }
 
 .apf-d08 button {
@@ -284,13 +291,26 @@
 .apf-d10 {
     display: flex;
     justify-content: center;
-    padding-left: 12%;
+    padding-left: 0%
+}
+
+.apf-d101 {
+    display: flex;
+    justify-content: center;
+    padding-left: 1%;
+
+}
+
+.apf-d101 input {
+    max-width: 60%;
+    max-height: 40%;
+    font-size: 25px;
 }
 
 .apf-d10 {
     display: flex;
     justify-content: center;
-    padding-left: 11%;
+    padding-left: 8%;
 }
 
 .apf-d10 input {
@@ -298,14 +318,15 @@
     font-weight: 600;
     font-size: large;
     max-height: 40%;
-    max-width: 40%;
+    max-width: 50%;
     padding-bottom: 1%;
+    padding-left: 5%;
 }
 
 .apf-d11 {
     display: flex;
     justify-content: center;
-    padding-left: 28%;
+    padding-left: 6%;
     margin-top: 1%;
 }
 

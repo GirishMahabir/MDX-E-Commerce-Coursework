@@ -29,7 +29,7 @@ if ($user and $role == 'admin') {
     if ($password == $db_password) {
         echo "User exists and password is correct";
         // Redirect to admin panel:
-        header("Location: admin-panel.php", true, 301);
+        header("Location: ./admin-panel.php", true, 301);
     } else {
         echo "User exists but password is incorrect";
     }
@@ -37,3 +37,5 @@ if ($user and $role == 'admin') {
     echo "User does not exist";
     error_log("$email tried to login to admin panel.");
 };
+
+

@@ -38,7 +38,7 @@ echo "
                     <!-- Form Section -->
                     <label for='email'>Email Address</label><br>
                     <!-- Basic Validation -->
-                    <input class='admin-login-form admin-login-form-field' type='text' id='email' name='email' minlength='8' required><br> <br>
+                    <input class='admin-login-form admin-login-form-field' type='email' id='email' name='email' required><br> <br>
 
                     <label for='password'>Password</label><br>
                     <input class='admin-login-form admin-login-form-field' type='password' id='password' name='password' required>
@@ -56,5 +56,3 @@ echo "
 
 </html>
 ";
-
-?>
