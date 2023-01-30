@@ -24,8 +24,7 @@ $quantity = $_POST["quantity"];
 // image upload code
 $target_dir = "../ASSETS/Products/";
 $banner = $_FILES["image"]["name"];
-// $filetype = $_FILES["UserImgFile"]["type"];
-$FILE_SIZE_LIMIT = 1000000; // 1MB
+$FILE_SIZE_LIMIT = $_ENV['FILE_SIZE_LIMIT'];
 
 function is_image($path)
 {
@@ -49,7 +48,7 @@ $bannerPath = $target_dir . $pid . "-" . basename($banner);
 if (move_uploaded_file($_FILES["image"]["tmp_name"], $bannerPath)) {
     // check if the file is an image:
     if (is_image($bannerPath)) {
-        echo "The file " . basename($banner) . " has been uploaded.";
+        error_log("The file " . basename($banner) . " has been uploaded.", 0);
     } else {
         error_log("The file $bannerPath is not an image.");
         // remove the file:
@@ -61,5 +60,24 @@ if (move_uploaded_file($_FILES["image"]["tmp_name"], $bannerPath)) {
         }
     }
 } else {
-    echo "Sorry, there was an error uploading your file.";
+    // echo '<script>alert("Sorry, there was an error uploading your file. Please try again.")</script>';
+}
+
+// insert data into mongodb
+// Check if pid already exists
+$check = $db_products->findOne(['pid' => $pid]);
+if ($check) {
+    echo '<script>alert("Product already exists, Please update the product.")</script>';
+} else {
+    // insert data into mongodb (image converted to binary)
+    $binaryData = file_get_contents($bannerPath);
+    $insertOneResult = $db_products->insertOne([
+        'productId' => $pid,
+        'name' => $product_name,
+        'description' => $description,
+        'price' => $price,
+        'quantity' => $quantity,
+        'image' => new MongoDB\BSON\Binary($binaryData, MongoDB\BSON\Binary::TYPE_GENERIC),
+    ]);
+    echo "Product added successfully.";
 }

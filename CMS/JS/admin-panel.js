@@ -44,5 +44,3 @@ function deleteImage(index) {
     imagesArray.splice(index, 1)
     displayImages()
 }
-
-

@@ -1,5 +1,4 @@
 <?php
-
 // Echoing the HTML code for the admin panel, top section.
 echo "
 <!DOCTYPE html>
@@ -68,29 +67,44 @@ $db_products = $db->products; // collection
 
 $product_size = $db_products->count();
 
+echo "<script>console.log('Product Size: $product_size');</script>";
+
 // get all productIds
 $products = $db_products->find();
 
+$product_list = $products->toArray();
+
+// for loop to print out the data from the database. "productId", "name", description", "price", "quantity"
+// "image", should be link to load image, that when clied on, it will open the image in a new tab.
 for ($i = 0; $i < $product_size; $i++) {
-    $product = $products->toArray()[$i];
-    $productId = $product['productId'];
-    $name = $product['name'];
-    $description = $product['description'];
-    $price = $product['price'];
-    $quantity = $product['quantity'];
-    $image = $product['image'];
+    $product_id = $product_list[$i]->productId;
+    $product_name = $product_list[$i]->name;
+    $product_description = $product_list[$i]->description;
+    $product_price = $product_list[$i]->price;
+    $product_quantity = $product_list[$i]->quantity;
+    $product_image = $product_list[$i]->image;
+
+    // convert image from binary to base64
+    $base64Data_image = base64_encode($product_image->getData());
+    // Create a data URL for the image
+    $dataURL_image = 'data:' . $product_image->getType() . ';base64,' . $base64Data_image;
+
+    // Download Image to local storage.
+    $image_name = $product_id . '.jpg';
+    $image_path = '../ASSETS/PRODUCTS/' . $image_name;
+    file_put_contents($image_path, $product_image->getData());
 
     echo "
         <tr>
-            <td>$productId</td>
-            <td>$name</td>
-            <td>$description</td>
-            <td>$price</td>
-            <td>$quantity</td>
-            <td>$image</td>
+            <td>$product_id</td>
+            <td>$product_name</td>
+            <td>$product_description</td>
+            <td>$product_price</td>
+            <td>$product_quantity</td>
+            <td><a href='$image_path' target='_blank'><i class='material-icons' id='icon'>image</i></a></td>
         </tr>
-    ";
-};
+        ";
+}
 
 
 echo "

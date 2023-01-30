@@ -20,33 +20,6 @@ $(document).ready(function () {
             }
         });
     });
-    // $('#addButton').click(function () {
-
-    //     var formData = new FormData($('imageform')[0]);
-    //     // Send an AJAX request
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: '../../PHP/add-products.php', // backend file.
-    //         async: false,
-    //         cache: false,
-    //         contentType: false,
-    //         processData: false,
-    //         // payload to send to server.
-    //         data: {
-    //             pid: $('#pid').val(),
-    //             product_name: $('#product_name').val(),
-    //             description: $('#description').val(),
-    //             price: $('#price').val(),
-    //             quantity: $('#quantity').val(),
-    //             // formData,
-    //         },
-    //         // if success, then do this.
-    //         success: function (data) { // data is the response from server.php, output of the backend file.
-    //             // output the response on console.
-    //             console.log(data);
-    //         }
-    //     });
-    // });
     $('#addButton').click(function () {
         var formData = new FormData();
         // Append pid, product_name, description, price, quantity to formData.
