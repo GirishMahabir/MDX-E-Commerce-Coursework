@@ -1,16 +1,6 @@
 <?php
-// include composer autoloader
-require '../vendor/autoload.php';
-// Loading Varaibles from .env file.
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->safeLoad();
 
-// initialize mongodb connection with url, username and password.
-$db_client = new MongoDB\Client(
-    'mongodb+srv://' . $_ENV['MONGODB_USER'] . ':' . $_ENV['MONGODB_PASSWORD'] . '@' . $_ENV['MONGODB_URL']
-);
-$DB_NAME = $_ENV['MONGODB_DATABASE'];
-$db = $db_client->$DB_NAME; // 
+include 'common.php';
 
 $db_users = $db->users; // collection
 
@@ -37,5 +27,3 @@ if ($user and $role == 'admin') {
     echo "User does not exist";
     error_log("$email tried to login to admin panel.");
 };
-
-

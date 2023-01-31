@@ -33,7 +33,7 @@ echo "
     </div>
     <div class='products-section scroll-btn'>
         <!-- Products Table -->
-        <table>
+        <table id='productsTable'>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -47,18 +47,8 @@ echo "
                 <tbody>
             ";
 // Grabbing the data from the database and printing it out in the table.
-// include composer autoloader
-require '../vendor/autoload.php';
-// Loading Varaibles from .env file.
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->safeLoad();
 
-// initialize mongodb connection with url, username and password.
-$db_client = new MongoDB\Client(
-    'mongodb+srv://' . $_ENV['MONGODB_USER'] . ':' . $_ENV['MONGODB_PASSWORD'] . '@' . $_ENV['MONGODB_URL']
-);
-$DB_NAME = $_ENV['MONGODB_DATABASE'];
-$db = $db_client->$DB_NAME; // 
+include 'common.php';
 
 $db_products = $db->products; // collection
 
@@ -66,8 +56,6 @@ $db_products = $db->products; // collection
 // "image", should be link to load image.
 
 $product_size = $db_products->count();
-
-echo "<script>console.log('Product Size: $product_size');</script>";
 
 // get all productIds
 $products = $db_products->find();
@@ -139,7 +127,7 @@ echo "
             <input type='text' id='pid' name='pid' placeholder='P000' minlength='4' maxlength='4'>
         </div>
         <div class='apf-d05'>
-            <input type='text' id='product_name' name='password'>
+            <input type='text' id='product_name' name='product_name'>
         </div>
     </div>
     <br> <br>

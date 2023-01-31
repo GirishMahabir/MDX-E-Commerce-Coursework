@@ -1,16 +1,5 @@
 <?php
-// include composer autoloader
-require '../vendor/autoload.php';
-// Loading Varaibles from .env file.
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->safeLoad();
-
-// initialize mongodb connection with url, username and password.
-$db_client = new MongoDB\Client(
-    'mongodb+srv://' . $_ENV['MONGODB_USER'] . ':' . $_ENV['MONGODB_PASSWORD'] . '@' . $_ENV['MONGODB_URL']
-);
-$DB_NAME = $_ENV['MONGODB_DATABASE'];
-$db = $db_client->$DB_NAME;
+include 'common.php';
 
 $db_products = $db->products; // collection
 
@@ -22,24 +11,9 @@ $price = $_POST["price"];
 $quantity = $_POST["quantity"];
 
 // image upload code
-$target_dir = "../ASSETS/Products/";
+$target_dir = "../ASSETS/PRODUCTS/";
 $banner = $_FILES["image"]["name"];
 $FILE_SIZE_LIMIT = $_ENV['FILE_SIZE_LIMIT'];
-
-function is_image($path)
-{
-    /*
-    Function to check if a file is an image.
-    Logic, if it's an image, it will be able to get the image size.
-    */
-    $a = getimagesize($path);
-    $image_type = $a[2];
-
-    if (in_array($image_type, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP))) {
-        return true;
-    }
-    return false;
-}
 
 // Check if image file is a actual image or fake image.
 $bannerPath = $target_dir . $pid . "-" . basename($banner);
@@ -60,7 +34,7 @@ if (move_uploaded_file($_FILES["image"]["tmp_name"], $bannerPath)) {
         }
     }
 } else {
-    // echo '<script>alert("Sorry, there was an error uploading your file. Please try again.")</script>';
+    echo "Sorry, there was an error uploading your file. Please try again";
 }
 
 // insert data into mongodb
@@ -80,4 +54,11 @@ if ($check) {
         'image' => new MongoDB\BSON\Binary($binaryData, MongoDB\BSON\Binary::TYPE_GENERIC),
     ]);
     echo "Product added successfully.";
+
+    // remove the file
+    if (!unlink($bannerPath)) {
+        error_log("$bannerPath cannot be deleted due to an error");
+    } else {
+        error_log("$bannerPath has been deleted", 0);
+    }
 }
