@@ -115,4 +115,37 @@ $(document).ready(function () {
             }
         });
     });
+    $('#deleteButton').click(function () {
+
+        // Check if the oid is present in the table with id 'orders_table'.
+        let oid_list = [];
+        $('#orders_table').find('tr').each(function () {
+            var $tds = $(this).find('td'),
+                oid = $tds.eq(0).text();
+            oid_list.push(oid);
+        });
+
+        // Send an AJAX request if the oid is present in the table.
+        if (oid_list.includes($('#oid').val())) {
+            $.ajax({
+                type: 'POST',
+                url: '../../PHP/delete-order.php', // backend file.
+                // payload to send to server.
+                data: {
+                    orderId: $('#oid').val(),
+                },
+                // if success, then do this.
+                success: function (data) { // data is the response from server.php, output of the backend file.
+                    // output the response on console.
+                    console.log(data);
+                    // reload the page.
+                    location.reload();
+                }
+            });
+        }
+        // If the oid is not present in the table, then alert the user.
+        else {
+            alert("Please enter a valid order id.");
+        }
+    });
 });

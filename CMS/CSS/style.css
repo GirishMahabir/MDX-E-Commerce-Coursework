@@ -219,7 +219,7 @@
     font-size: large;
     color: black;
     margin-top: 7%;
-    margin-left: 22%;
+    margin-left: 41%;
 }
 
 .apf-d04 {
@@ -268,12 +268,13 @@
 }
 
 .apf-d08 button {
-    height: 120%;
+    height: 115%;
     font-weight: 600;
-    font-size: larger;
+    font-size: xx-large;
     border-radius: 100px;
     background-color: #009879;
     color: azure;
+    margin-top: 4%;
 }
 
 .apf-d09 {
@@ -326,7 +327,7 @@
 .apf-d11 {
     display: flex;
     justify-content: center;
-    padding-left: 6%;
+    padding-left: 4%;
     margin-top: 1%;
 }
 

@@ -171,7 +171,7 @@ echo "
 echo "
     <!-- Orders Section -->
     <div class='products-section scroll-btn'>
-        <table>
+        <table id='orders_table'>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -237,6 +237,20 @@ echo "
             </tbody>
         </table>
     </div>
+";
+// Order ID Field + button to delete order
+echo "
+    <div class='admin-products-form'>
+        <div class='apf-d04'>
+            <input type='text' id='oid' name='oid' placeholder='Order ID' minlength='4' maxlength='4'>
+        </div>
+        <div class='apf-d08'>
+            <button id='deleteButton' type='button'>DELETE</button>
+        </div>
+    </div>
+    <br> <br>
+";
+echo "
     <script src='../JS/admin-panel.js'></script>
 </body>
 
