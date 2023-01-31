@@ -106,7 +106,6 @@ for ($i = 0; $i < $product_size; $i++) {
         ";
 }
 
-
 echo "
             </tbody>
         </table>
@@ -179,7 +178,9 @@ echo "
         <!-- Section Break -->
         Orders List
     </div>
+";
 
+echo "
     <!-- Orders Section -->
     <div class='products-section scroll-btn'>
         <table>
@@ -193,20 +194,58 @@ echo "
                 </tr>
             </thead>
             <tbody>
+    ";
+
+
+// get all orders from the database.
+$db_orders = $db->orders; // collection
+$orders_size = $db_orders->count();
+$orders = $db_orders->find();
+
+// get the user name from the database.
+$db_users = $db->users; // collection
+
+$orders_list = $orders->toArray();
+
+// for loop to print out the data from the database. "orderId", User Name, Product Name, "quantity", Total Price
+for ($i = 0; $i < $orders_size; $i++) {
+    $order_id = $orders_list[$i]->orderId;
+    $order_user_id = $orders_list[$i]->userId;
+    $order_product_id = $orders_list[$i]->productId;
+    $order_quantity = $orders_list[$i]->quantity;
+
+    // get the user name from the database, using the user id.
+    $user = $db_users->findOne(['userId' => $order_user_id]);
+    $user_name = $user->name;
+    $user_surname = $user->surname;
+    $username = $user_name . ' ' . $user_surname;
+
+
+    // get the product name from the database.
+    $product = $db_products->findOne(['productId' => $order_product_id]);
+    $product_name = $product->name;
+
+    // get the product price from the database.
+    $product_price = $product->price;
+
+    // extract only the numbers from the price.
+    $product_price = preg_replace('/[^0-9.]/', '', $product_price);
+
+    // get the total price.
+    $total_price = $product_price * $order_quantity;
+
+    echo "
                 <tr>
-                    <td>O001</td>
-                    <td>Alice Gella</td>
-                    <td>MSI Rider</td>
-                    <td>5</td>
-                    <td>$700</td>
+                    <td>$order_id</td>
+                    <td>$product_name</td>
+                    <td>$user_name</td>
+                    <td>$order_quantity</td>
+                    <td>$total_price</td>
                 </tr>
-                <tr class='show-row'>
-                    <td>O002</td>
-                    <td>John Doe</td>
-                    <td>Asus Zephrus G14</td>
-                    <td>5</td>
-                    <td>$1700</td>
-                </tr>
+    ";
+}
+
+echo "
             </tbody>
         </table>
     </div>
