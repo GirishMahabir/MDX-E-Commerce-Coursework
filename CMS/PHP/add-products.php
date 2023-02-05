@@ -34,14 +34,20 @@ if (move_uploaded_file($_FILES["image"]["tmp_name"], $bannerPath)) {
         }
     }
 } else {
-    echo "Sorry, there was an error uploading your file. Please try again";
+    echo json_encode(array(
+        "status" => "image_error",
+        "message" => "Sorry, there was an error uploading your file."
+    ));
 }
 
 // insert data into mongodb
 // Check if pid already exists
 $check = $db_products->findOne(['pid' => $pid]);
 if ($check) {
-    echo '<script>alert("Product already exists, Please update the product.")</script>';
+    echo json_encode(array(
+        "status" => "error",
+        "message" => "Product ID already exists."
+    ));
 } else {
     // insert data into mongodb (image converted to binary)
     $binaryData = file_get_contents($bannerPath);
@@ -53,7 +59,10 @@ if ($check) {
         'quantity' => $quantity,
         'image' => new MongoDB\BSON\Binary($binaryData, MongoDB\BSON\Binary::TYPE_GENERIC),
     ]);
-    echo "Product added successfully.";
+    echo json_encode(array(
+        "status" => "success",
+        "message" => "Product added successfully."
+    ));
 
     // remove the file
     if (!unlink($bannerPath)) {

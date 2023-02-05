@@ -1,9 +1,49 @@
-// Just Output Username and Password on Console.
+
+// Function to do input sanitization on the input fields(for sql injection).
+function sanitizeInput(input) {
+    // Check if invalid characters below are present in the input.
+    if (input.includes("<") || input.includes(">") || input.includes("'") ||
+        input.includes('"') || input.includes("`") || input.includes(";") ||
+        input.includes("\\") || input.includes("/") || input.includes("!") ||
+        input.includes("=")) {
+        // If no, continue.
+        // If yes, alert the user.
+        alert("Invalid characters in the input fields. Contact the admin.");
+    } else {
+
+        // Remove all the html tags from the input.
+        input = input.replace(/(<([^>]+)>)/gi, "");
+        // Remove all the single quotes from the input.
+        input = input.replace(/'/g, "");
+        // Remove all the double quotes from the input.
+        input = input.replace(/"/g, "");
+        // Remove all the backticks from the input.
+        input = input.replace(/`/g, "");
+        // Remove all the semicolons from the input.
+        input = input.replace(/;/g, "");
+        // Remove all the backslashes from the input.
+        input = input.replace(/\\/g, "");
+        // Remove all the forward slashes from the input.
+        input = input.replace(/\//g, "");
+        // Remove all the new line characters from the input.
+        input = input.replace(/(\r\n|\n|\r)/gm, "");
+        // Remove all the tab characters from the input.
+        input = input.replace(/\t/g, "");
+        // Remove ! and = from the input.
+        input = input.replace(/!|=/g, "");
+
+        return input;
+    }
+}
 
 // Wait until the DOM is ready
 $(document).ready(function () {
     // Wait for onClick event on Login button.
     $('#loginButton').click(function () {
+        // Sanitize the input fields.
+        sanitizeInput($('#email').val());
+        sanitizeInput($('#password').val());
+
         // Send an AJAX request
         $.ajax({
             type: 'POST',
@@ -14,14 +54,27 @@ $(document).ready(function () {
                 password: $('#password').val(),
             },
             // if success, then do this.
-            success: function (data) { // data is the response from server.php, output of the backend file.
-                // Redirect to admin panel page.
-                window.location.href = "../../PHP/admin-panel.php";
+            success: function (response) { // data is the response from server.php, output of the backend file.
+                response = JSON.parse(response);
+                if (response.status == "success") {
+                    console.log(response.message);
+                    window.location.href = "./PHP/admin-panel.php";
+                } else {
+                    alert(response.message);
+                }
             }
         });
     });
     $('#addButton').click(function () {
         var formData = new FormData();
+
+        // Sanitize the input fields.
+        sanitizeInput($('#pid').val());
+        sanitizeInput($('#product_name').val());
+        sanitizeInput($('#description').val());
+        sanitizeInput($('#price').val());
+        sanitizeInput($('#quantity').val());
+
         // Append pid, product_name, description, price, quantity to formData.
         formData.append('pid', $("#pid").val());
         formData.append('product_name', $("#product_name").val());
@@ -44,15 +97,29 @@ $(document).ready(function () {
             // payload to send to server.
             data: formData,
             // if success, then do this.
-            success: function (data) { // data is the response from server.php, output of the backend file.
-                // output the response on console.
-                console.log(data);
-                // reload the page.
-                location.reload();
+            success: function (response) { // data is the response from server.php, output of the backend file.
+                response = JSON.parse(response);
+                if (response.status == "success") {
+                    alert(response.message);
+                    location.reload();
+                } else if (response == "error") {
+                    alert(response.message);
+                } else if (response == "image_error") {
+                    alert(response.message);
+                } else {
+                    alert("Some error occured, Try again.");
+                }
             }
         });
     });
     $('#updateButton').click(function () {
+        // Sanitize the input fields.
+        sanitizeInput($('#pid').val());
+        sanitizeInput($('#product_name').val());
+        sanitizeInput($('#description').val());
+        sanitizeInput($('#price').val());
+        sanitizeInput($('#quantity').val());
+
         // for the update button, only the pid is compulsory.
         var formData = new FormData();
         // Append pid, product_name, description, price, quantity to formData.
@@ -104,18 +171,25 @@ $(document).ready(function () {
             // payload to send to server.
             data: formData,
             // if success, then do this.
-            success: function (data) { // data is the response from server.php, output of the backend file.
-                // output the response on console.
-                console.log(data);
-                // reload the page.
-                location.reload();
-            },
-            error: function (data) {
-                console.log(data);
+            success: function (response) { // response is the response from server.php, output of the backend file.
+                response = JSON.parse(response);
+                if (response.status == "success") {
+                    alert(response.message);
+                    location.reload();
+                } else if (response == "error") {
+                    alert(response.message);
+                } else if (response == "image_error") {
+                    alert(response.message);
+                } else {
+                    alert("Some error occured, Try again.");
+                }
             }
         });
     });
     $('#deleteButton').click(function () {
+
+        // Sanitize the input fields.
+        sanitizeInput($('#oid').val());
 
         // Check if the oid is present in the table with id 'orders_table'.
         let oid_list = [];
@@ -135,17 +209,20 @@ $(document).ready(function () {
                     orderId: $('#oid').val(),
                 },
                 // if success, then do this.
-                success: function (data) { // data is the response from server.php, output of the backend file.
-                    // output the response on console.
-                    console.log(data);
-                    // reload the page.
-                    location.reload();
+                success: function (response) { // response is the response from server.php, output of the backend file.
+                    response = JSON.parse(response);
+                    if (response.status == "success") {
+                        alert(response.message);
+                        location.reload();
+                    } else if (response == "error") {
+                        alert(response.message);
+                    } else {
+                        alert("Some error occured, Try again.");
+                    };
                 }
             });
-        }
-        // If the oid is not present in the table, then alert the user.
-        else {
+        } else {
             alert("Please enter a valid order id.");
-        }
+        };
     });
 });

@@ -46,7 +46,10 @@ if (isset($_FILES["image"])) {
             }
         }
     } else {
-        echo "Sorry, there was an error uploading your file. Please try again";
+        echo json_encode(array(
+            "status" => "image_error",
+            "message" => "Sorry, there was an error uploading your file."
+        ));
     }
 } else {
     // re-use the old image.
@@ -56,18 +59,32 @@ if (isset($_FILES["image"])) {
 // insert data into mongodb (image converted to binary)
 $binaryData = file_get_contents($bannerPath);
 
-// Update the product if it already exists.
+// get the ObjectId of the product.
+$object_id = $db_products->findOne(['productId' => $pid])['_id'];
+
+// update the product in the database.
 $updateResult = $db_products->updateOne(
-    ['productId' => $pid],
+    ['_id' => $object_id],
     ['$set' => [
         'name' => $product_name,
+        'price' => $price,
         'description' => $description,
-        'price' => $price, 'quantity' => $quantity,
-        'image' => new MongoDB\BSON\Binary($binaryData, MongoDB\BSON\Binary::TYPE_GENERIC)
+        'image' => new MongoDB\BSON\Binary($binaryData, MongoDB\BSON\Binary::TYPE_GENERIC),
+        'quantity' => $quantity,
+        'productId' => $pid
     ]]
 );
+
 if ($updateResult->getModifiedCount() == 1) {
-    echo "Product updated successfully.";
+    echo json_encode(array(
+        "status" => "success",
+        "message" => "Product updated successfully."
+    ));
 } else {
-    echo "Product could not be updated.";
+    echo json_encode(array(
+        "status" => "error",
+        "message" => "Product could not be updated."
+    ));
 }
+
+exit();

@@ -1,4 +1,15 @@
 <?php
+
+error_log("ADMIN COOKIE: " . $_COOKIE["admin"], 0);
+
+// check if admin cookie is valid
+if (isset($_COOKIE['admin'])) {
+    // if cookie is valid, do nothing.
+} else {
+    header("Location: ../index.php");
+}
+
+
 // Echoing the HTML code for the admin panel, top section.
 echo "
 <!DOCTYPE html>
