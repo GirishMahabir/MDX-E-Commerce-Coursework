@@ -1,5 +1,6 @@
 import pymongo
 import base64
+import datetime
 
 product_list = {
     'P001': {
@@ -143,6 +144,19 @@ product_list = {
         'quantity': '10'
     }
 }
+# List of 5 users based on the user document above.
+user_list = [
+    {"name": "John", "surname": "Doe", "username": "john", "email": "john@gmail.com",
+     "password": "john'sPass56&", "date_added": {"$date": {"$numberLong": "1673875434861"}}, "role": "customer", "userId": "U001", "orderId": "O001"},
+    {"name": "Mary", "surname": "Smith", "username": "mary", "email": "mary@gmail.com",
+     "password": "mary'sPass56&", "date_added": {"$date": {"$numberLong": "1673875434861"}}, "role": "customer", "userId": "U002", "orderId": "O002"},
+    {"name": "David", "surname": "Jones", "username": "david", "email": "david@gmail.com",
+     "password": "david'sPass56&", "date_added": {"$date": {"$numberLong": "1673875434861"}}, "role": "customer", "userId": "U003", "orderId": "O003"},
+    {"name": "Sarah", "surname": "Lee", "username": "sarah", "email": "sarah@gmail.com",
+     "password": "sarah'sPass56&", "date_added": {"$date": {"$numberLong": "1673875434861"}}, "role": "customer", "userId": "U004", "orderId": "O004"},
+    {"name": "Mark", "surname": "Davis", "username": "mark", "email": "mark@gmail.com",
+     "password": "mark'sPass56&", "date_added": {"$date": {"$numberLong": "1673875434861"}}, "role": "customer", "userId": "U005", "orderId": "O005"}
+]
 
 # Add all theses products to the mongoDB database
 # MongoDB Configuration Variables.
@@ -157,7 +171,7 @@ client = pymongo.MongoClient(
 db = client[MONGODB_DATABASE]
 products = db["products"]
 
-# Insert all the products into the database.
+# # Insert all the products into the database.
 for product in product_list:
 
     # The key is the "productId" in the database.
@@ -168,3 +182,30 @@ for product in product_list:
 
     product_list[product]['image'] = binary_data
     products.insert_one(product_list[product])
+
+
+# Add all theses users to the mongoDB database
+users = db["users"]
+
+# Insert all the users into the database.
+for user in user_list:
+    users.insert_one(user)
+
+# Orders List.
+order_list = [
+    {"orderId": "O001", "date": {"$date": {"$numberLong": "1674102810892"}},
+        "userId": "U002", "productId": "P001", "quantity": "2"},
+    {"orderId": "O002", "date": {"$date": {"$numberLong": "1674102810892"}},
+        "userId": "U003", "productId": "P002", "quantity": "1"},
+    {"orderId": "O003", "date": {"$date": {"$numberLong": "1674102810892"}},
+        "userId": "U001", "productId": "P003", "quantity": "3"},
+    {"orderId": "O004", "date": {"$date": {"$numberLong": "1674102810892"}},
+        "userId": "U004", "productId": "P002", "quantity": "2"},
+    {"orderId": "O005", "date": {"$date": {"$numberLong": "1674102810892"}},
+        "userId": "U005", "productId": "P001", "quantity": "1"}
+]
+
+# Add all theses orders to the mongoDB database
+orders = db["orders"]
+for order in order_list:
+    orders.insert_one(order)
